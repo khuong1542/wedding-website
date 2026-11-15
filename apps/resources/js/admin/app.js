@@ -92,6 +92,38 @@ if (admin) {
   });
   if (window.matchMedia('(max-width: 600px)').matches) toggle.click();
 
+  const scrollToActiveModule = async () => {
+    const navigation = admin.querySelector('.admin-navigation');
+    const activeLink = navigation.querySelector('[aria-current="page"]');
+    if (!activeLink) return;
+    await document.fonts.ready;
+    // Wait for ancestor menus to finish expanding before measuring the link.
+    await new Promise((resolve) => requestAnimationFrame(resolve));
+    await Promise.allSettled(
+      navigation
+        .getAnimations({ subtree: true })
+        .map((animation) => animation.finished),
+    );
+    const target = admin.classList.contains('is-collapsed')
+      ? [...rootItems]
+          .find((item) => item.contains(activeLink))
+          ?.querySelector(':scope > .admin-menu-link')
+      : activeLink;
+    if (!target) return;
+    const containerRect = navigation.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    navigation.scrollTop +=
+      targetRect.top +
+      targetRect.height / 2 -
+      (containerRect.top + navigation.clientHeight / 2);
+  };
+  if (document.readyState === 'complete') scrollToActiveModule();
+  else window.addEventListener('load', scrollToActiveModule, { once: true });
+  new MutationObserver(() => scrollToActiveModule()).observe(
+    admin.querySelector('.admin-navigation'),
+    { subtree: true, attributes: true, attributeFilter: ['aria-current'] },
+  );
+
   const themeButtons = [...admin.querySelectorAll('[data-theme-option]')];
   const media = window.matchMedia('(prefers-color-scheme: dark)');
   let theme = document.documentElement.dataset.themePreference || 'system';

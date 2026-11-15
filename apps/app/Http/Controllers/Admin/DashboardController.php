@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\CoupleProfile;
+use App\Models\OurStory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -33,9 +34,11 @@ class DashboardController extends Controller
         return response()->view(match ($page) {
             'overview' => 'admin.pages.dashboard',
             'wedding' => 'admin.pages.couple',
+            'our-story' => 'admin.pages.our-story.index',
             default => 'admin.pages.empty',
         }, [
             'navigation' => $navigation,
+            'story' => $page === 'our-story' ? OurStory::with('milestones')->find(1) : null,
             'couple' => $page === 'wedding' ? CoupleProfile::query()->find(1) : null,
             'page' => $page,
             'title' => __('admin.'.$pages->get($page)),
