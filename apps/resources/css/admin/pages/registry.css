@@ -1,0 +1,368 @@
+.registry-form {
+    margin-top: 26px;
+    font-size: 14px;
+}
+
+.registry-tabs,
+.registry-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.registry-tabs button,
+.registry-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    padding: 11px 18px;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.registry-tabs button[aria-selected='true'],
+.registry-button {
+    color: #14253d;
+    background: #dfc17d;
+    border-color: #dfc17d;
+    font-weight: 600;
+}
+
+.registry-button-secondary {
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    border-color: var(--admin-border);
+}
+
+.registry-panel-heading,
+.registry-account-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px;
+    background: var(--admin-soft);
+    border-bottom: 1px solid var(--admin-border);
+    border-radius: 12px 12px 0 0;
+}
+
+.registry-panel-heading h2,
+.registry-account-heading h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.registry-panel-heading h2 > i,
+.registry-account-heading h3 > i {
+    font-size: 24px;
+    color: #b89750;
+}
+
+.registry-switch-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.registry-switch-label input[type='checkbox'] {
+    position: absolute;
+    right: 0;
+    width: 38px;
+    height: 22px;
+    opacity: 0;
+}
+
+.registry-switch {
+    display: block;
+    position: relative;
+    width: 38px;
+    height: 22px;
+    border-radius: 20px;
+    background: var(--admin-border);
+    flex-shrink: 0;
+}
+
+.registry-switch::after {
+    content: '';
+    position: absolute;
+    inset: 3px auto auto 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px #00000020;
+    transition: transform 160ms ease;
+}
+
+.registry-switch-label input:checked + .registry-switch {
+    background: #b89750;
+}
+
+.registry-switch-label input:checked + .registry-switch::after {
+    transform: translateX(16px);
+}
+
+.registry-switch-label input:focus-visible + .registry-switch {
+    outline: 2px solid var(--admin-gold);
+    outline-offset: 3px;
+}
+
+.registry-accounts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.registry-account {
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.registry-account-bride .registry-account-heading {
+    background: #ce759e12;
+}
+
+.registry-account-groom .registry-account-heading {
+    background: #6386c212;
+}
+
+.registry-account-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 18px;
+    padding: 18px;
+}
+
+.registry-bank-fields {
+    display: grid;
+    gap: 16px;
+}
+
+.registry-field {
+    min-width: 0;
+}
+
+.registry-field label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 7px;
+    font-weight: 500;
+}
+
+.registry-field input,
+.registry-content textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid var(--admin-border);
+    border-radius: 7px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font: inherit;
+    font-size: 14px;
+}
+
+.registry-content textarea {
+    resize: vertical;
+}
+
+.registry-field input:focus,
+.registry-content textarea:focus,
+.registry-qr-frame:focus-within {
+    outline: 2px solid var(--admin-gold);
+    outline-offset: 2px;
+}
+
+.registry-input-wrap {
+    position: relative;
+}
+
+.registry-input-wrap:has(.registry-copy) input {
+    padding-right: 36px;
+}
+
+.registry-copy {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--admin-muted);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.registry-qr-column {
+    align-self: start;
+    min-width: 0;
+}
+
+.registry-qr-picker {
+    position: relative;
+}
+
+.registry-qr-frame {
+    display: grid;
+    place-items: center;
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px dashed var(--admin-gold);
+    border-radius: 10px;
+    background: var(--admin-soft);
+    cursor: pointer;
+}
+
+.registry-qr-frame > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    font-size: 14px;
+    text-align: center;
+    color: var(--admin-muted);
+}
+
+.registry-qr-frame > span > i {
+    font-size: 34px;
+    color: #b89750;
+}
+
+.registry-qr-frame img,
+.registry-qr-frame input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.registry-qr-frame img {
+    object-fit: contain;
+    background: #fff;
+    padding: 8px;
+}
+
+.registry-qr-frame input {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.registry-qr-remove {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #14253ddd;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.registry-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--admin-text);
+    text-decoration: none;
+}
+
+.registry-message {
+    margin-top: 22px;
+}
+
+.registry-content {
+    padding: 20px;
+}
+
+.registry-gift {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    align-items: end;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.registry-icon-button {
+    font-size: 22px;
+    color: #d35e5e;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.registry-empty {
+    text-align: center;
+    color: var(--admin-muted);
+    padding: 30px 20px;
+}
+
+.registry-actions {
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.registry-errors {
+    padding: 16px 20px;
+    border: 1px solid #d35e5e;
+    color: #d35e5e;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.registry-qr-frame > span[hidden],
+.registry-qr-remove[hidden],
+.registry-download[hidden] {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .registry-account-body {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .registry-qr-column {
+        width: min(100%, 220px);
+    }
+}
+
+@media (max-width: 800px) {
+    .registry-accounts,
+    .registry-gift {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .registry-panel-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-page-heading:has([data-add-gift]) {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

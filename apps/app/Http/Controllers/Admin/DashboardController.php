@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CoupleProfile;
 use App\Models\OurStory;
+use App\Models\WeddingRegistry;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -35,11 +36,13 @@ class DashboardController extends Controller
             'overview' => 'admin.pages.dashboard',
             'wedding' => 'admin.pages.couple',
             'our-story' => 'admin.pages.our-story.index',
+            'registry' => 'admin.pages.registry.index',
             default => 'admin.pages.empty',
         }, [
             'navigation' => $navigation,
+            'registry' => $page === 'registry' ? WeddingRegistry::find(1) : null,
             'story' => $page === 'our-story' ? OurStory::with('milestones')->find(1) : null,
-            'couple' => $page === 'wedding' ? CoupleProfile::query()->find(1) : null,
+            'couple' => in_array($page, ['wedding', 'registry'], true) ? CoupleProfile::query()->find(1) : null,
             'page' => $page,
             'title' => __('admin.'.$pages->get($page)),
         ])->cookie('admin_locale', $locale, 60 * 24 * 365);

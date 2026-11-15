@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CoupleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OurStoryController;
+use App\Http\Controllers\Admin\RegistryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,3 +21,5 @@ Route::put('/admin/our-story', OurStoryController::class.'@update')->name('admin
 Route::get('/admin/our-story/photos/{milestone}', OurStoryController::class.'@photo')->name('admin.our-story.photo');
 
 Route::patch('/admin/our-story/order', OurStoryController::class.'@reorder')->name('admin.our-story.order');
+
+Route::put('/admin/registry', RegistryController::class.'@update')->name('admin.registry.update');
