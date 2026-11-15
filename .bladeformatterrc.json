@@ -1,0 +1,8 @@
+{
+  "indentSize": 4,
+  "useTabs": false,
+  "endWithNewLine": true,
+  "endOfLine": "LF",
+  "wrapLineLength": 120,
+  "sortTailwindcssClasses": false
+}

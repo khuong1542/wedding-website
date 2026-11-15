@@ -1,0 +1,4 @@
+pre-commit:
+  commands:
+    format:
+      run: npm --prefix apps run format:staged
