@@ -12,7 +12,7 @@
     <section class="admin-welcome">
         <div><span class="admin-eyebrow">{{ __('admin.planning') }}</span>
             <h2>{{ __('admin.welcome') }}</h2>
-            <p>{{ __('admin.welcome_description') }}</p><a href="{{ route('admin.dashboard', ['page' => 'wedding']) }}"
+            <p>{{ __('admin.welcome_description') }}</p><a href="{{ route('admin.couple.index') }}"
                 class="admin-primary-link">{{ __('admin.manage_wedding') }}<x-admin::icon name="arrow-up-right" /></a>
         </div>
         <div class="admin-welcome-art" aria-hidden="true">
@@ -35,7 +35,8 @@
             </div>
             <div class="admin-steps">
                 @foreach ([['wedding', 'calendar', 'step_wedding'], ['guests', 'group', 'step_guests'], ['invitations', 'envelope', 'step_invite']] as [$key, $icon, $label])
-                    <a class="admin-step" href="{{ route('admin.dashboard', ['page' => $key]) }}"><span
+                    <a class="admin-step"
+                        href="{{ route('admin.' . ($key === 'wedding' ? 'couple' : $key) . '.index') }}"><span
                             class="admin-step-icon"><x-admin::icon
                                 :name="$icon" /></span><span><strong>{{ __('admin.' . $label) }}</strong><small>{{ __('admin.' . $label . '_desc') }}</small></span><x-admin::icon
                             name="arrow-right" /></a>
@@ -48,9 +49,9 @@
                 <h2>{{ __('admin.quick_access') }}</h2>
             </div>
             <div class="admin-quick-links">
-                @foreach ([['schedule', 'calendar', 'schedule_desc'], ['photos', 'images', 'photos_desc'], ['rsvp', 'check-circle', 'rsvp_desc']] as [$key, $icon, $description])
-                    <a href="{{ route('admin.dashboard', ['page' => $key]) }}"><x-admin::icon
-                            :name="$icon" /><span><strong>{{ __('admin.' . $key) }}</strong><small>{{ __('admin.' . $description) }}</small></span><x-admin::icon
+                @foreach ([['shared-events', 'calendar', 'schedule_desc'], ['photos', 'images', 'photos_desc'], ['rsvp', 'check-circle', 'rsvp_desc']] as [$key, $icon, $description])
+                    <a href="{{ route('admin.' . ($key === 'wedding' ? 'couple' : $key) . '.index') }}"><x-admin::icon
+                            :name="$icon" /><span><strong>{{ __('admin.' . str_replace('-', '_', $key)) }}</strong><small>{{ __('admin.' . $description) }}</small></span><x-admin::icon
                             name="arrow-up-right" /></a>
                 @endforeach
             </div>

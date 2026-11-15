@@ -23,7 +23,7 @@ class OurStoryTest extends TestCase
         $this->assertSame('Our journey', $story->title);
         $first = $story->milestones[0];
         $second = $story->milestones[1];
-        $this->get('/admin?page=our-story')->assertOk()->assertSee('First meeting');
+        $this->get('/admin/our-story')->assertOk()->assertSee('First meeting');
         $this->assertSame('How we met', $story->introduction);
         $this->put(route('admin.our-story.update'), [
             'title' => 'Our journey', 'milestones' => [
@@ -32,7 +32,7 @@ class OurStoryTest extends TestCase
             ],
         ])->assertSessionHasNoErrors();
         $this->assertSame([$second->id, $first->id], $story->milestones()->pluck('id')->all());
-        $this->get('/admin?page=our-story')->assertOk()->assertSeeInOrder(['Engaged', 'First meeting']);
+        $this->get('/admin/our-story')->assertOk()->assertSeeInOrder(['Engaged', 'First meeting']);
         $this->put(route('admin.our-story.update'), ['title' => 'Just us'])->assertSessionHasNoErrors();
         $this->assertDatabaseCount('story_milestones', 0);
         $this->assertDatabaseCount('our_stories', 1);
@@ -90,7 +90,7 @@ class OurStoryTest extends TestCase
         $this->patchJson(route('admin.our-story.order'), ['ids' => [$first->id, $first->id]])->assertStatus(422);
         $this->patchJson(route('admin.our-story.order'), ['ids' => [$first->id, 99999]])->assertStatus(422);
         $this->assertSame([$second->id, $first->id], $story->milestones()->pluck('id')->all());
-        $this->get('/admin?page=our-story')->assertOk()->assertSeeInOrder(['Second', 'First']);
+        $this->get('/admin/our-story')->assertOk()->assertSeeInOrder(['Second', 'First']);
     }
 
     public function test_milestone_titles_are_limited_to_120_characters(): void

@@ -26,15 +26,6 @@
         data-photo-error="{{ __('couple.photo_error') }}" data-photo-read-error="{{ __('couple.photo_read_error') }}">
         @csrf
         @method('PUT')
-        @if ($errors->any())
-            <div class="couple-validation" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         @foreach (['groom', 'bride'] as $person)
             <input type="hidden" name="remove_{{ $person }}_photo"
                 value="{{ old('remove_' . $person . '_photo', '0') }}" data-photo-removal="{{ $person }}">

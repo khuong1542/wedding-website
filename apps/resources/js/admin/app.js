@@ -1,5 +1,7 @@
 import '../bootstrap';
 import './toast';
+import './validation';
+import './forms';
 
 const admin = document.querySelector('[data-admin]');
 

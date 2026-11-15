@@ -91,4 +91,6 @@ return [
     'navigation_footer' => 'Navigation & Footer',
     'users_permissions' => 'Users & Permissions',
     'activity_logs' => 'Activity Logs',
+    'side_events' => 'Bride & Groom Events',
+    'shared_events' => 'Shared Events',
 ];

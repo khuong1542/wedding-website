@@ -356,20 +356,6 @@
     }
 }
 
-.couple-validation {
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    border: 1px solid #d35e5e;
-    border-radius: 8px;
-    color: #d35e5e;
-    font-size: 14px;
-}
-
-.couple-validation ul {
-    list-style: disc;
-    padding-left: 16px;
-}
-
 .couple-layout {
     display: block;
 }

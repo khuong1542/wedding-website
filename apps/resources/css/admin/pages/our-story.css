@@ -255,19 +255,6 @@
     display: none;
 }
 
-.story-errors {
-    border: 1px solid #d35e5e;
-    color: #d35e5e;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-}
-
-.story-errors ul {
-    list-style: disc;
-    padding-left: 16px;
-}
-
 @media (max-width: 900px) {
     .story-milestone-body {
         grid-template-columns: 140px minmax(0, 1fr);

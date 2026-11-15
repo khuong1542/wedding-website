@@ -28,7 +28,7 @@ class AdminDashboardTest extends TestCase
             ->assertSee('Theo máy')
             ->assertCookie('admin_locale', 'vn');
 
-        $this->withCookie('admin_locale', 'vn')->get('/admin?page=guests')
+        $this->withCookie('admin_locale', 'vn')->get('/admin/guests')
             ->assertOk()->assertSee('Danh sách khách mời');
     }
 
@@ -47,8 +47,8 @@ class AdminDashboardTest extends TestCase
 
     public function test_unknown_module_returns_not_found(): void
     {
-        $this->get('/admin?page=missing')->assertNotFound();
-        $this->get('/admin?page[]=guests')->assertNotFound();
+        $this->get('/admin/missing')->assertNotFound();
+        $this->get('/admin/missing-module')->assertNotFound();
     }
 
     public function test_sidebar_groups_and_nested_modules_are_available_in_both_languages(): void
@@ -61,7 +61,7 @@ class AdminDashboardTest extends TestCase
                     if (! empty($item['children'])) {
                         $checkItems($item['children']);
                     } else {
-                        $this->get('/admin?lang='.$locale.'&page='.$item['key'])->assertOk();
+                        $this->get(route($item['route'], ['lang' => $locale]))->assertOk();
                     }
                 }
             };

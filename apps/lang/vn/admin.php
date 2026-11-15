@@ -91,4 +91,6 @@ return [
     'navigation_footer' => 'Điều hướng & chân trang',
     'users_permissions' => 'Người dùng & phân quyền',
     'activity_logs' => 'Nhật ký hoạt động',
+    'side_events' => 'Sự kiện hai nhà',
+    'shared_events' => 'Sự kiện chung',
 ];

@@ -17,11 +17,11 @@ class CoupleProfileTest extends TestCase
     {
         $data = ['groom_full_name' => 'Test Groom', 'bride_full_name' => 'Test Bride', 'wedding_on' => '2027-05-20', 'quote' => 'Our story'];
         $this->put(route('admin.couple.update'), $data)
-            ->assertRedirect('/admin?page=wedding&lang=en')->assertSessionHas('couple_saved');
+            ->assertRedirect('/admin/couple?lang=en')->assertSessionHas('couple_saved');
         $profile = CoupleProfile::findOrFail(1);
         $this->assertSame('Test Groom', $profile->details['groom_full_name']);
         $this->assertSame('2027-05-20', $profile->details['wedding_on']);
-        $this->get('/admin?page=wedding')->assertOk()->assertSee('Test Groom')->assertSee('data-toast-type="success"', false);
+        $this->get('/admin/couple')->assertOk()->assertSee('Test Groom')->assertSee('data-toast-type="success"', false);
         $this->assertSame('Our story', $profile->details['quote']);
         $data['groom_full_name'] = 'Updated Groom';
         $this->put(route('admin.couple.update'), $data)->assertSessionHasNoErrors();
@@ -31,11 +31,11 @@ class CoupleProfileTest extends TestCase
 
     public function test_invalid_data_does_not_change_the_profile(): void
     {
-        $this->from('/admin?page=wedding')->put(route('admin.couple.update'), [
+        $this->from('/admin/couple')->put(route('admin.couple.update'), [
             'groom_full_name' => '', 'bride_full_name' => 'Bride',
             'groom_email' => 'invalid', 'bride_facebook' => 'javascript:alert(1)',
             'groom_birthday' => '2999-01-01',
-        ])->assertRedirect('/admin?page=wedding')
+        ])->assertRedirect('/admin/couple')
             ->assertSessionHasErrors(['groom_full_name', 'groom_email', 'bride_facebook', 'groom_birthday']);
         $this->assertDatabaseCount('couple_profiles', 0);
     }
@@ -93,7 +93,7 @@ class CoupleProfileTest extends TestCase
         Storage::disk('local')->assertExists($profile->bride_bank_qr);
         $this->assertNull($profile->fresh()->groom_bank_qr);
         $this->get(route('admin.couple.qr', 'groom'))->assertNotFound();
-        $this->get('/admin?page=wedding')->assertOk()
+        $this->get('/admin/couple')->assertOk()
             ->assertSee('groom_address')->assertSee('bride_bank_qr')
             ->assertDontSee('name="groom_display_name"', false)
             ->assertDontSee('name="bride_occupation"', false)

@@ -17,7 +17,7 @@
             <div class="admin-language-panel" id="admin-language-panel" hidden>
                 @foreach (['vn' => 'Tiếng Việt', 'en' => 'English'] as $locale => $label)
                     <a class="admin-language-option {{ app()->getLocale() === $locale ? 'is-selected' : '' }}"
-                        href="{{ route('admin.dashboard', ['page' => $page, 'lang' => $locale]) }}"
+                        href="{{ route($pageRoute, array_merge(request()->except(['page', 'lang']), ['lang' => $locale])) }}"
                         lang="{{ $locale === 'vn' ? 'vi' : 'en' }}"
                         @if (app()->getLocale() === $locale) aria-current="true" @endif>
                         <span class="admin-flag admin-flag-{{ $locale }}"

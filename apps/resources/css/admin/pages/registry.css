@@ -326,14 +326,6 @@
     margin-top: 24px;
 }
 
-.registry-errors {
-    padding: 16px 20px;
-    border: 1px solid #d35e5e;
-    color: #d35e5e;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
 .registry-qr-frame > span[hidden],
 .registry-qr-remove[hidden],
 .registry-download[hidden] {

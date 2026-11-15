@@ -1,6 +1,7 @@
-<div class="admin-toast-region" data-toast-region aria-label="{{ __('admin.notifications') }}"
-    data-success="{{ __('toast.success') }}" data-error="{{ __('toast.error') }}" data-info="{{ __('toast.info') }}"
-    data-warning="{{ __('toast.warning') }}" data-close="{{ __('toast.close') }}"></div>
+<div class="admin-toast-region" data-toast-region data-save-error="{{ __('toast.save_error') }}"
+    aria-label="{{ __('admin.notifications') }}" data-success="{{ __('toast.success') }}"
+    data-error="{{ __('toast.error') }}" data-info="{{ __('toast.info') }}" data-warning="{{ __('toast.warning') }}"
+    data-close="{{ __('toast.close') }}"></div>
 @if (session('couple_saved'))
     <span hidden data-toast-message="{{ __('couple.saved') }}" data-toast-type="success"></span>
 @endif

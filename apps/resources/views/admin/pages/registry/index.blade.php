@@ -14,15 +14,6 @@
         data-image-error="{{ __('registry.image_error') }}" data-limit="{{ __('registry.limit') }}">
         @csrf
         @method('PUT')
-        @if ($errors->any())
-            <div class="registry-errors" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <section id="registry-panel-accounts">
             <div class="admin-panel">
                 <div class="registry-panel-heading">

@@ -973,3 +973,25 @@
         animation: none;
     }
 }
+
+.admin-field-error {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    color: #d35e5e;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.admin-main input[aria-invalid='true'],
+.admin-main textarea[aria-invalid='true'],
+.admin-main select[aria-invalid='true'] {
+    border-color: #d35e5e;
+}
+
+.couple-portrait:has(input[aria-invalid='true']),
+.story-image-frame:has(input[aria-invalid='true']),
+.registry-qr-frame:has(input[aria-invalid='true']),
+.event-photo-frame:has(input[aria-invalid='true']) {
+    border-color: #d35e5e;
+}

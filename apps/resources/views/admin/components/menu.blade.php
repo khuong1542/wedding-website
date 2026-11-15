@@ -17,8 +17,7 @@
                 </div>
             @else
                 <a class="admin-menu-link {{ $page === $item['key'] ? 'is-active' : '' }}"
-                    href="{{ route('admin.dashboard', ['page' => $item['key']]) }}"
-                    @if ($page === $item['key']) aria-current="page" @endif>
+                    href="{{ route($item['route']) }}" @if ($page === $item['key']) aria-current="page" @endif>
                     <span class="admin-menu-icon" aria-hidden="true"><x-admin::icon :name="$item['icon'] ?? 'circle'" /></span>
                     <span class="admin-menu-label">{{ __('admin.' . $item['label']) }}</span>
                 </a>

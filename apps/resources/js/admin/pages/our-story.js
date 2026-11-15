@@ -403,6 +403,24 @@ if (form) {
     list.insertBefore(row, others[position] || null);
     refresh();
   });
+  form.addEventListener('admin:field-error', (event) => {
+    const row = event.detail.input.closest('[data-milestone]');
+    if (row) {
+      activeRow = row;
+      refresh();
+    }
+  });
+  form.addEventListener('admin:submit-complete', () => {
+    rows()
+      .filter((row) => !row.querySelector('input[name$="[id]"]').value)
+      .forEach((row) => {
+        row
+          .querySelectorAll('input:disabled, textarea:disabled')
+          .forEach((input) => {
+            input.disabled = false;
+          });
+      });
+  });
   form.noValidate = true;
   form.addEventListener('submit', (event) => {
     if (savingOrder) {

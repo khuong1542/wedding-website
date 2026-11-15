@@ -27,15 +27,6 @@
         data-photo-error="{{ __('story.photo_error') }}" data-limit="{{ __('story.limit') }}">
         @csrf
         @method('PUT')
-        @if ($errors->any())
-            <div class="story-errors" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <input type="hidden" name="title" value="{{ $story?->title ?: __('admin.our_story') }}">
         <div class="story-workspace">
             <aside class="story-list-panel admin-panel">

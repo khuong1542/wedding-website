@@ -2,6 +2,8 @@
 
 Áp dụng cho mã nguồn trong `apps/`, cấu hình trong `docker/`, `docker-compose.yml` và script trong `scripts/`. Đọc tài liệu này trước khi thêm tính năng hoặc sửa lỗi.
 
+Kiến trúc xử lý dữ liệu: [Controller → Form Request → Service → Repository → Model](architecture.md).
+
 Quy tắc theo ngôn ngữ:
 
 - [CSS](css.md): lùi 4 space, một dòng trống giữa các khối selector.
@@ -37,7 +39,7 @@ Mọi file văn bản phải kết thúc bằng ký tự xuống dòng LF (final
 - Dùng Form Request cho validation phức tạp hoặc có thể tái sử dụng; validation ngắn, đơn giản có thể đặt trong controller.
 - Dùng Policy hoặc Gate cho phân quyền; không chỉ ẩn nút trên giao diện.
 - Model quản lý quan hệ, cast, scope và hành vi gắn trực tiếp với dữ liệu.
-- Chỉ tách Action hoặc Service khi nghiệp vụ cần dùng lại hoặc đã đủ phức tạp; không tạo lớp trung gian rỗng chỉ để chuyển tiếp lời gọi.
+- Mọi luồng xử lý dữ liệu dùng Controller → Form Request → Service → Repository → Model theo quy ước trong `architecture.md`.
 - Ưu tiên dependency injection; tránh gọi `new` trực tiếp với dependency cần thay thế khi test.
 - Đọc biến môi trường qua file `config/`, sau đó dùng `config()` trong mã ứng dụng.
 - Xử lý lỗi bằng cơ chế exception của Laravel; không bắt mọi exception rồi trả thành công hoặc bỏ qua lỗi.

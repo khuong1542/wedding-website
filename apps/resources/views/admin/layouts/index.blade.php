@@ -30,6 +30,7 @@
                 {{ config('sidebar.name') }}<span>{{ __('admin.made_with_care') }}</span></footer>
         </main>
     </div>
+    <x-admin::validation-errors />
     <x-admin::toasts />
 </body>
 

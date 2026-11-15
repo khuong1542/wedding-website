@@ -24,7 +24,7 @@ class WeddingRegistryTest extends TestCase
         $registry = WeddingRegistry::findOrFail(1);
         $this->assertSame('00123456', $registry->settings['bride_account']);
         $this->assertSame('Coffee maker', $registry->gifts[0]['title']);
-        $this->get('/admin?page=registry')->assertOk()->assertSee('Test Bank')->assertSee('Thank you');
+        $this->get('/admin/registry')->assertOk()->assertSee('Test Bank')->assertSee('Thank you');
         $this->put(route('admin.registry.update'), ['enabled' => '0', 'bride_enabled' => '0', 'groom_enabled' => '0'])->assertSessionHasNoErrors();
         $this->assertSame('Coffee maker', $registry->fresh()->gifts[0]['title']);
         $this->assertDatabaseCount('wedding_registries', 1);
