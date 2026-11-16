@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AppearanceController;
 use App\Http\Controllers\Admin\ContentPageController;
 use App\Http\Controllers\Admin\CoupleController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -37,6 +38,7 @@ Route::middleware(AdminContext::class)->group(function () {
                     'rsvp' => [RsvpResponseController::class, 'index'],
                     'invitations' => [InvitationController::class, 'index'],
                     'wishes' => [WishController::class, 'index'],
+                    'themes' => [AppearanceController::class, 'index'],
                     'shared-events' => [WeddingEventController::class, 'shared'],
                     default => PlaceholderController::class,
                 };
@@ -95,4 +97,10 @@ Route::middleware(AdminContext::class)->group(function () {
     Route::post('/admin/wishes/bulk', [WishController::class, 'bulk'])->name('admin.wishes.bulk');
     Route::put('/admin/wishes/settings', [WishController::class, 'settings'])->name('admin.wishes.settings');
     Route::patch('/admin/wishes/{wish}/status', [WishController::class, 'status'])->whereNumber('wish')->name('admin.wishes.status');
+});
+
+Route::middleware(AdminContext::class)->group(function () {
+    Route::put('/admin/themes', [AppearanceController::class, 'save'])->name('admin.themes.save');
+    Route::post('/admin/themes/preview', [AppearanceController::class, 'preview'])->name('admin.themes.preview');
+    Route::get('/admin/themes/preview', [AppearanceController::class, 'show'])->name('admin.themes.show');
 });

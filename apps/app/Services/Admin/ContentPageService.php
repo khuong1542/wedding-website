@@ -3,6 +3,7 @@
 namespace App\Services\Admin;
 
 use App\Models\ContentPage;
+use App\Repositories\Admin\AppearanceRepository;
 use App\Repositories\Admin\ContentPageRepository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +14,7 @@ use Throwable;
 
 class ContentPageService
 {
-    public function __construct(private ContentPageRepository $repository) {}
+    public function __construct(private ContentPageRepository $repository, private AppearanceRepository $appearance) {}
 
     public function data(): array
     {
@@ -80,6 +81,7 @@ class ContentPageService
         }
 
         return ['view' => $definition['view'], 'data' => [
+            'appearance' => $this->appearance->settings(),
             'groomName' => filled($data['groom_name'] ?? null) ? $data['groom_name'] : __('pages.groom_name_placeholder'),
             'brideName' => filled($data['bride_name'] ?? null) ? $data['bride_name'] : __('pages.bride_name_placeholder'),
             'pageTitle' => filled($data['title'] ?? null) ? $data['title'] : __('pages.preview_sample_title'),

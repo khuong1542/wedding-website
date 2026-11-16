@@ -7,6 +7,7 @@
     <title>{{ $seoTitle ?: $pageTitle }}</title>
     <meta name="description" content="{{ $seoDescription ?: $summary }}">
     @vite('resources/css/templates/pages.css')
+    @include('templates.pages.partials.appearance')
 </head>
 
 <body class="page-template @yield('page_template_theme')">
