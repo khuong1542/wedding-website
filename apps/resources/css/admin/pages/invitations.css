@@ -1,0 +1,576 @@
+@import '../../fonts.css';
+
+.iv-page {
+    margin-top: 24px;
+    font-size: 14px;
+}
+
+.iv-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.iv-button.is-primary {
+    background: var(--admin-primary);
+    color: var(--admin-on-primary);
+    border-color: var(--admin-primary);
+}
+
+.iv-button.is-primary:hover {
+    background: var(--admin-primary-hover);
+}
+
+.iv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.iv-stat {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 20px;
+}
+
+.iv-stat strong {
+    display: block;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+.iv-stat-icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--admin-soft);
+    color: var(--admin-primary);
+    font-size: 29px;
+}
+
+.iv-stat.iv-active .iv-stat-icon,
+.iv-badge.iv-active {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.iv-stat.iv-draft .iv-stat-icon,
+.iv-badge.iv-draft {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+.iv-stat.iv-archived .iv-stat-icon,
+.iv-badge.iv-archived {
+    color: #475569;
+    background: #e2e8f0;
+}
+
+.iv-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.iv-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(340px, 1fr);
+    align-items: start;
+    gap: 20px;
+}
+
+.iv-list,
+.iv-editor {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.iv-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.iv-filters label {
+    min-width: 110px;
+    flex: 1;
+}
+
+.iv-filters .iv-search {
+    flex: 2;
+    min-width: 160px;
+}
+
+.iv-page input,
+.iv-page select,
+.iv-page textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid var(--admin-border);
+    border-radius: 7px;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    font: inherit;
+}
+
+.iv-page input[type='color'] {
+    height: 44px;
+    padding: 4px;
+}
+
+.iv-page :is(a, button, input, select, textarea):focus-visible {
+    outline: 2px solid var(--admin-primary);
+    outline-offset: 3px;
+}
+
+.iv-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
+
+.iv-card {
+    min-width: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    padding: 5px;
+    background: var(--admin-surface);
+    overflow: hidden;
+}
+
+.iv-card.is-selected {
+    border-color: var(--admin-primary);
+}
+
+.iv-card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 8px;
+}
+
+.iv-card h3 {
+    margin: 0;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.iv-card > h3 {
+    padding: 14px 8px;
+}
+
+.iv-badge {
+    flex-shrink: 0;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+.iv-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 8px;
+    border-top: 1px solid var(--admin-border);
+}
+
+.iv-card-actions button,
+.iv-card-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--admin-primary);
+    text-decoration: none;
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+}
+
+.iv-card-actions form {
+    display: flex;
+}
+
+.iv-pagination,
+.iv-pagination nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.iv-pagination {
+    padding: 18px;
+    border-top: 1px solid var(--admin-border);
+}
+
+.iv-pagination > span {
+    margin-right: auto;
+}
+
+.iv-empty {
+    grid-column: 1 / -1;
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--admin-muted);
+}
+
+.iv-empty i {
+    font-size: 42px;
+    color: var(--admin-primary);
+}
+
+.iv-editor > h2 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    font-size: 19px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.iv-editor > h2 i {
+    color: var(--admin-primary);
+}
+
+.iv-editor-tabs {
+    display: flex;
+    padding: 12px;
+    gap: 4px;
+    border-bottom: 1px solid var(--admin-border);
+    overflow-x: auto;
+}
+
+.iv-editor-tabs button {
+    flex: 1;
+    padding: 10px 8px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--admin-soft);
+    color: var(--admin-text);
+    white-space: nowrap;
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+}
+
+.iv-editor-tabs [aria-selected='true'] {
+    color: var(--admin-on-primary);
+    background: var(--admin-primary);
+}
+
+.iv-panel {
+    padding: 20px;
+    min-height: 400px;
+}
+
+.iv-field {
+    margin-bottom: 18px;
+}
+
+.iv-field > label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.iv-editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 18px;
+    border-top: 1px solid var(--admin-border);
+}
+
+.iv-photo {
+    position: relative;
+}
+
+.iv-photo-frame {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1.9;
+    border: 1px dashed var(--admin-border);
+    border-radius: 9px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--admin-soft);
+}
+
+.iv-photo-frame > span {
+    text-align: center;
+    padding: 25px;
+    font-size: 12px;
+    color: var(--admin-muted);
+}
+
+.iv-photo-frame > span i {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.iv-photo-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.iv-photo-frame input[type='file'] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.iv-photo > button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: 0;
+    border-radius: 50%;
+    padding: 6px;
+    background: #581525;
+    color: white;
+    cursor: pointer;
+}
+
+.iv-dialog {
+    width: min(480px, calc(100% - 32px));
+    padding: 24px;
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+}
+
+.iv-dialog::backdrop {
+    background: #200c1899;
+}
+
+.iv-preview-dialog {
+    width: min(1000px, calc(100% - 32px));
+    max-height: 90dvh;
+}
+
+.iv-preview-dialog iframe {
+    width: 100%;
+    height: 65dvh;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 16px;
+    background: #fff9fb;
+}
+
+.iv-page [hidden] {
+    display: none !important;
+}
+
+.iv-art {
+    --iv-accent: #d81b60;
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 190px;
+    aspect-ratio: 1.9;
+    overflow: hidden;
+    border-radius: 8px;
+    background:
+        radial-gradient(ellipse at top left, #f9cbdc, transparent 45%),
+        radial-gradient(ellipse at bottom right, #fce4ec, transparent 50%),
+        #fff9fb;
+    color: #581525;
+    font:
+        400 12px/1.5 'Noto Serif',
+        serif;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.iv-art-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+}
+
+.iv-art-copy {
+    position: relative;
+    width: 78%;
+    z-index: 1;
+    padding: 16px 0;
+}
+
+.iv-art-eyebrow {
+    display: block;
+    font-style: italic;
+    color: var(--iv-accent);
+}
+
+.iv-art-heart {
+    display: block;
+    color: var(--iv-accent);
+    font-size: 28px;
+    line-height: 1;
+    margin: 8px 0;
+}
+
+.iv-art .iv-art-copy h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: clamp(16px, 1.5vw, 22px);
+    line-height: 1.6;
+    font-weight: 400;
+    margin: 6px 0;
+    overflow-wrap: anywhere;
+}
+
+.iv-art h3 > span {
+    color: var(--iv-accent);
+}
+
+.iv-art-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.iv-ornament {
+    position: absolute;
+    font-size: 100px;
+    color: var(--iv-accent);
+    opacity: 0.25;
+    line-height: 1;
+}
+
+.iv-ornament-left {
+    left: -18px;
+    top: -10px;
+    transform: rotate(40deg);
+}
+
+.iv-ornament-right {
+    right: -18px;
+    bottom: -10px;
+    transform: rotate(220deg);
+}
+
+.iv-art-elegant {
+    background: #fbf7ed;
+    border: 9px double #c0ad87;
+}
+
+.iv-art-elegant .iv-ornament {
+    color: #76816a;
+}
+
+.iv-art-photo {
+    background: linear-gradient(120deg, #bd9985, #faf0e6 70%);
+    border: 9px double #fff;
+}
+
+.iv-art-photo .iv-art-image {
+    opacity: 0.5;
+}
+
+.iv-art-photo .iv-art-copy {
+    background: #fff9fbcc;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.iv-art-minimal {
+    background: #fff;
+    border: 1px solid #efdde4;
+}
+
+.iv-art-minimal .iv-ornament {
+    display: none;
+}
+
+.iv-preview-page {
+    margin: 0;
+    padding: 30px;
+    color: #581525;
+    background: #fff9fb;
+    font:
+        400 14px/1.8 'Noto Sans',
+        sans-serif;
+}
+
+.iv-preview-page main {
+    max-width: 900px;
+    margin: auto;
+}
+
+.iv-preview-page .iv-art {
+    min-height: 440px;
+    font-size: 18px;
+}
+
+.iv-preview-page .iv-art h3 {
+    font-size: clamp(24px, 5vw, 44px);
+}
+
+.iv-preview-page .iv-art-meta {
+    font-size: 14px;
+}
+
+.iv-message {
+    white-space: pre-wrap;
+    text-align: center;
+    padding: 25px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1200px) {
+    .iv-workspace {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .iv-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .iv-card-grid,
+    .iv-stats {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .iv-preview-page {
+        padding: 12px;
+    }
+}

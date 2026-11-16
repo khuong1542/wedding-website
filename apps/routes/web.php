@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ContentPageController;
 use App\Http\Controllers\Admin\CoupleController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\InvitationController;
 use App\Http\Controllers\Admin\OurStoryController;
 use App\Http\Controllers\Admin\PlaceholderController;
 use App\Http\Controllers\Admin\RegistryController;
@@ -33,6 +34,7 @@ Route::middleware(AdminContext::class)->group(function () {
                     'events' => [WeddingEventController::class, 'index'],
                     'pages' => [ContentPageController::class, 'index'],
                     'rsvp' => [RsvpResponseController::class, 'index'],
+                    'invitations' => [InvitationController::class, 'index'],
                     'shared-events' => [WeddingEventController::class, 'shared'],
                     default => PlaceholderController::class,
                 };
@@ -76,4 +78,13 @@ Route::middleware(AdminContext::class)->group(function () {
 Route::middleware(AdminContext::class)->group(function () {
     Route::put('/admin/rsvp/{response}', [RsvpResponseController::class, 'update'])->whereNumber('response')->name('admin.rsvp.update');
     Route::delete('/admin/rsvp/{response}', [RsvpResponseController::class, 'destroy'])->whereNumber('response')->name('admin.rsvp.destroy');
+});
+
+Route::middleware(AdminContext::class)->group(function () {
+    Route::post('/admin/invitations/preview', [InvitationController::class, 'preview'])->name('admin.invitations.preview');
+    Route::post('/admin/invitations', [InvitationController::class, 'save'])->name('admin.invitations.save');
+    Route::post('/admin/invitations/{invitation}/duplicate', [InvitationController::class, 'duplicate'])->whereNumber('invitation')->name('admin.invitations.duplicate');
+    Route::delete('/admin/invitations/{invitation}', [InvitationController::class, 'destroy'])->whereNumber('invitation')->name('admin.invitations.destroy');
+    Route::get('/admin/invitations/{invitation}/photo', [InvitationController::class, 'photo'])->whereNumber('invitation')->name('admin.invitations.photo');
+    Route::get('/admin/invitations/{invitation}/preview', [InvitationController::class, 'show'])->whereNumber('invitation')->name('admin.invitations.show');
 });
