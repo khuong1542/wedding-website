@@ -49,7 +49,7 @@
                 <h2>{{ __('admin.quick_access') }}</h2>
             </div>
             <div class="admin-quick-links">
-                @foreach ([['shared-events', 'calendar', 'schedule_desc'], ['photos', 'images', 'photos_desc'], ['rsvp', 'check-circle', 'rsvp_desc']] as [$key, $icon, $description])
+                @foreach ([['shared-events', 'calendar', 'schedule_desc'], ['gallery', 'images', 'photos_desc'], ['rsvp', 'check-circle', 'rsvp_desc']] as [$key, $icon, $description])
                     <a href="{{ route('admin.' . ($key === 'wedding' ? 'couple' : $key) . '.index') }}"><x-admin::icon
                             :name="$icon" /><span><strong>{{ __('admin.' . str_replace('-', '_', $key)) }}</strong><small>{{ __('admin.' . $description) }}</small></span><x-admin::icon
                             name="arrow-up-right" /></a>

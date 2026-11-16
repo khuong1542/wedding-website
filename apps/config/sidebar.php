@@ -14,11 +14,7 @@ return [
                 ['label' => 'side_events', 'icon' => 'group', 'key' => 'events', 'route' => 'admin.events.index'],
                 ['label' => 'shared_events', 'icon' => 'calendar-event', 'key' => 'shared-events', 'route' => 'admin.shared-events.index'],
             ]],
-            ['label' => 'gallery', 'icon' => 'images', 'children' => [
-                ['label' => 'albums', 'icon' => 'photo-album', 'key' => 'albums', 'route' => 'admin.albums.index'],
-                ['label' => 'photos', 'icon' => 'image', 'key' => 'photos', 'route' => 'admin.photos.index'],
-                ['label' => 'videos', 'icon' => 'video', 'key' => 'videos', 'route' => 'admin.videos.index'],
-            ]],
+            ['label' => 'gallery', 'icon' => 'images', 'key' => 'gallery', 'route' => 'admin.gallery.index'],
             ['label' => 'wedding_registry', 'icon' => 'gift', 'key' => 'registry', 'route' => 'admin.registry.index'],
             ['label' => 'pages_sections', 'icon' => 'layout', 'key' => 'pages', 'route' => 'admin.pages.index'],
         ]],

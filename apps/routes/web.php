@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AppearanceController;
 use App\Http\Controllers\Admin\ContentPageController;
 use App\Http\Controllers\Admin\CoupleController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InvitationController;
 use App\Http\Controllers\Admin\NavigationController;
 use App\Http\Controllers\Admin\OurStoryController;
@@ -45,6 +46,7 @@ Route::middleware(AdminContext::class)->group(function () {
                     'page-builder' => [PageBuilderController::class, 'index'],
                     'ui-settings' => [UiSettingsController::class, 'index'],
                     'navigation' => [NavigationController::class, 'index'],
+                    'gallery' => [GalleryController::class, 'index'],
                     'shared-events' => [WeddingEventController::class, 'shared'],
                     default => PlaceholderController::class,
                 };
@@ -128,4 +130,15 @@ Route::middleware(AdminContext::class)->group(function () {
     Route::post('/admin/navigation/preview', [NavigationController::class, 'preview'])->name('admin.navigation.preview');
     Route::get('/admin/navigation/preview', [NavigationController::class, 'show'])->name('admin.navigation.show');
     Route::get('/admin/navigation/logo', [NavigationController::class, 'logo'])->name('admin.navigation.logo');
+});
+
+Route::middleware(AdminContext::class)->group(function () {
+    Route::post('/admin/gallery', [GalleryController::class, 'save'])->name('admin.gallery.save');
+    Route::post('/admin/gallery/albums', [GalleryController::class, 'album'])->name('admin.gallery.albums.save');
+    Route::delete('/admin/gallery/albums/{album}', [GalleryController::class, 'deleteAlbum'])->whereNumber('album')->name('admin.gallery.albums.destroy');
+    Route::post('/admin/gallery/download', [GalleryController::class, 'downloadSelected'])->name('admin.gallery.download-selected');
+    Route::post('/admin/gallery/bulk', [GalleryController::class, 'bulk'])->name('admin.gallery.bulk');
+    Route::get('/admin/gallery/{media}/photo', [GalleryController::class, 'photo'])->whereNumber('media')->name('admin.gallery.photo');
+    Route::get('/admin/gallery/{media}/download', [GalleryController::class, 'download'])->whereNumber('media')->name('admin.gallery.download');
+    Route::get('/admin/gallery/{media}/preview', [GalleryController::class, 'preview'])->whereNumber('media')->name('admin.gallery.preview');
 });
