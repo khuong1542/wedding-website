@@ -1,0 +1,489 @@
+.wish-page {
+    margin-top: 26px;
+    font-size: 14px;
+}
+
+.wish-tabs,
+.wish-row-actions,
+.wish-detail-actions,
+.wish-pagination,
+.wish-pagination nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.wish-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    text-decoration: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+.wish-button.is-active {
+    background: var(--admin-primary);
+    border-color: var(--admin-primary);
+    color: var(--admin-on-primary);
+}
+
+.wish-button.is-active:hover {
+    background: var(--admin-primary-hover);
+}
+
+.wish-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 24px 0;
+}
+
+.wish-stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px;
+}
+
+.wish-stat strong {
+    display: block;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+.wish-stat small {
+    align-self: start;
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.wish-stat-icon,
+.wish-avatar {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--admin-soft);
+    color: var(--admin-primary);
+    font-size: 24px;
+}
+
+.wish-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px;
+    margin-bottom: 20px;
+}
+
+.wish-filters label {
+    flex: 1 1 150px;
+    min-width: 0;
+}
+
+.wish-filters .wish-search {
+    flex: 2 1 260px;
+}
+
+.wish-page input,
+.wish-page select,
+.wish-page textarea {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: 7px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    padding: 10px 12px;
+    font: inherit;
+}
+
+.wish-page :is(input, select, textarea, button, a):focus-visible {
+    outline: 2px solid var(--admin-primary);
+    outline-offset: 3px;
+}
+
+.wish-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.wish-workspace.has-detail {
+    grid-template-columns: minmax(0, 1fr) 330px;
+}
+
+.wish-list {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.wish-table-scroll {
+    overflow-x: auto;
+}
+
+.wish-page table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.wish-page th {
+    background: var(--admin-soft);
+    font-weight: 600;
+}
+
+.wish-page th,
+.wish-page td {
+    padding: 16px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.wish-page tr.is-selected {
+    background: var(--admin-soft);
+}
+
+.wish-guest {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wish-guest strong,
+.wish-page td small,
+.wish-guest small {
+    display: block;
+}
+
+.wish-guest small {
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.wish-guest h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.wish-group,
+.wish-badge {
+    display: inline-flex;
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: var(--admin-soft);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.wish-badge.wish-published {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.wish-badge.wish-hidden {
+    color: #9f1239;
+    background: #ffe4e6;
+}
+
+.wish-badge.wish-pending {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+.wish-note {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.wish-row-actions a,
+.wish-row-actions button,
+.wish-detail header > a {
+    display: inline-flex;
+    background: transparent;
+    border: 0;
+    color: var(--admin-primary);
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 19px;
+}
+
+.wish-pagination {
+    padding: 18px;
+}
+
+.wish-pagination > span {
+    margin-right: auto;
+}
+
+.wish-empty {
+    text-align: center;
+    height: 240px;
+}
+
+.wish-empty > i {
+    font-size: 36px;
+    color: var(--admin-primary);
+}
+
+.wish-detail header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-soft);
+    border-radius: 12px 12px 0 0;
+}
+
+.wish-detail h2,
+.wish-dialog h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.wish-detail-body,
+.wish-edit {
+    padding: 20px;
+    overflow-wrap: anywhere;
+}
+
+.wish-detail dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    border-bottom: 1px solid var(--admin-border);
+    padding: 18px 0;
+}
+
+.wish-detail dd {
+    margin: 0;
+    text-align: right;
+    white-space: pre-wrap;
+    max-width: 65%;
+}
+
+.wish-detail-actions {
+    margin-top: 24px;
+}
+
+.wish-edit > label {
+    display: block;
+    margin: 14px 0 7px;
+    font-weight: 600;
+}
+
+.wish-error {
+    color: #e11d48;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.wish-dialog {
+    width: min(460px, calc(100% - 32px));
+    padding: 24px;
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+}
+
+.wish-dialog::backdrop {
+    background: #200c1899;
+}
+
+@media (max-width: 1200px) {
+    .wish-workspace.has-detail {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .wish-detail {
+        grid-row: 1;
+    }
+
+    .wish-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 540px) {
+    .wish-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .wish-tabs .wish-button {
+        flex: 1 1 45%;
+    }
+}
+
+.wish-stat.wish-published .wish-stat-icon {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.wish-stat.wish-hidden .wish-stat-icon {
+    color: #9f1239;
+    background: #ffe4e6;
+}
+
+.wish-stat.wish-pending .wish-stat-icon {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+.wish-tabs {
+    margin-bottom: 20px;
+}
+
+.wish-stats {
+    margin-top: 0;
+}
+
+.wish-filters {
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.wish-message-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+    min-width: 220px;
+    max-width: 410px;
+    line-height: 1.7;
+}
+
+.wish-page input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--admin-primary);
+    cursor: pointer;
+}
+
+.wish-bulk-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.wish-bulk-actions label {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.wish-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.wish-detail blockquote {
+    padding: 16px;
+    border: 1px solid var(--admin-border);
+    border-radius: 9px;
+    margin: 22px 0;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    background: var(--admin-bg);
+}
+
+.wish-field {
+    margin-bottom: 18px;
+}
+
+.wish-field > label,
+.wish-setting-field > label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.wish-switch-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.wish-page .wish-switch {
+    appearance: none;
+    position: relative;
+    width: 44px;
+    height: 26px;
+    padding: 0;
+    border: 0;
+    border-radius: 30px;
+    background: var(--admin-border);
+    flex-shrink: 0;
+    transition: background 180ms ease;
+}
+
+.wish-switch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 180ms ease;
+}
+
+.wish-page .wish-switch:checked {
+    background: var(--admin-primary);
+}
+
+.wish-switch:checked::after {
+    transform: translateX(18px);
+}
+
+.wish-settings {
+    max-width: 780px;
+    padding: 24px;
+}
+
+.wish-settings h2 {
+    font-size: 19px;
+    margin: 0 0 20px;
+}
+
+.wish-setting-field {
+    margin-bottom: 20px;
+}
+
+.wish-setting-field > .wish-switch-label {
+    display: flex;
+}
+
+.wish-page [hidden] {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wish-switch,
+    .wish-switch::after {
+        transition: none;
+    }
+}

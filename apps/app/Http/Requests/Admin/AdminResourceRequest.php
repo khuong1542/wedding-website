@@ -13,7 +13,7 @@ class AdminResourceRequest extends FormRequest
 
     protected function prepareForValidation(): void
     {
-        $this->merge(['resource_id' => $this->route('event') ?? $this->route('milestone') ?? $this->route('contentPage') ?? $this->route('response') ?? $this->route('invitation')]);
+        $this->merge(['resource_id' => $this->route('event') ?? $this->route('milestone') ?? $this->route('contentPage') ?? $this->route('response') ?? $this->route('invitation') ?? $this->route('wish')]);
     }
 
     public function rules(): array

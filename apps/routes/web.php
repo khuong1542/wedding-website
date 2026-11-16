@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PlaceholderController;
 use App\Http\Controllers\Admin\RegistryController;
 use App\Http\Controllers\Admin\RsvpResponseController;
 use App\Http\Controllers\Admin\WeddingEventController;
+use App\Http\Controllers\Admin\WishController;
 use App\Http\Middleware\AdminContext;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,7 @@ Route::middleware(AdminContext::class)->group(function () {
                     'pages' => [ContentPageController::class, 'index'],
                     'rsvp' => [RsvpResponseController::class, 'index'],
                     'invitations' => [InvitationController::class, 'index'],
+                    'wishes' => [WishController::class, 'index'],
                     'shared-events' => [WeddingEventController::class, 'shared'],
                     default => PlaceholderController::class,
                 };
@@ -87,4 +89,10 @@ Route::middleware(AdminContext::class)->group(function () {
     Route::delete('/admin/invitations/{invitation}', [InvitationController::class, 'destroy'])->whereNumber('invitation')->name('admin.invitations.destroy');
     Route::get('/admin/invitations/{invitation}/photo', [InvitationController::class, 'photo'])->whereNumber('invitation')->name('admin.invitations.photo');
     Route::get('/admin/invitations/{invitation}/preview', [InvitationController::class, 'show'])->whereNumber('invitation')->name('admin.invitations.show');
+});
+
+Route::middleware(AdminContext::class)->group(function () {
+    Route::post('/admin/wishes/bulk', [WishController::class, 'bulk'])->name('admin.wishes.bulk');
+    Route::put('/admin/wishes/settings', [WishController::class, 'settings'])->name('admin.wishes.settings');
+    Route::patch('/admin/wishes/{wish}/status', [WishController::class, 'status'])->whereNumber('wish')->name('admin.wishes.status');
 });
