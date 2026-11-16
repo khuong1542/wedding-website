@@ -1,19 +1,7 @@
 @extends('templates.pages.layout')
 @section('page_template_theme', 'page-template-invitation page-template-builder')
 @section('page_template_content')
-    <header class="v2-header">
-        <a class="v2-brand" href="#home">
-            @if ($image)
-            <img class="v2-logo" src="{{ $image }}" alt="{{ __('pages.logo') }}">@else<span class="v2-brand-heart"
-                    aria-hidden="true">♡</span>
-            @endif {{ $pageTitle }}
-        </a>
-        <nav class="v2-nav" aria-label="{{ __('builder.blocks') }}">
-            @foreach (array_slice($blocks, 0, 4) as $item)
-                <a href="#block-{{ $item['id'] }}">{{ $item['name'] }}</a>
-            @endforeach
-        </nav>
-    </header>
+    @include('templates.pages.partials.site-header')
     <div class="builder-published-content" id="home">
         @foreach ($blocks as $block)
             <section id="block-{{ $block['id'] }}"

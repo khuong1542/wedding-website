@@ -1,4 +1,4 @@
-            <section class="v2-wishes v2-section">
+            <section class="v2-wishes v2-section" id="v2-wishes">
                 <h2>{{ __('pages.wishes') }}</h2>
                 <div class="v2-wishes-layout" aria-hidden="true">
                     <div class="v2-wish-list">

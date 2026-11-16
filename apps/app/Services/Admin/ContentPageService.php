@@ -14,7 +14,7 @@ use Throwable;
 
 class ContentPageService
 {
-    public function __construct(private ContentPageRepository $repository, private AppearanceRepository $appearance) {}
+    public function __construct(private ContentPageRepository $repository, private AppearanceRepository $appearance, private NavigationService $navigation) {}
 
     public function data(): array
     {
@@ -80,7 +80,10 @@ class ContentPageService
             }
         }
 
+        $navigation = $this->navigation->preview();
+
         return ['view' => $definition['view'], 'data' => [
+            ...$navigation,
             'appearance' => $this->appearance->settings(),
             'groomName' => filled($data['groom_name'] ?? null) ? $data['groom_name'] : __('pages.groom_name_placeholder'),
             'brideName' => filled($data['bride_name'] ?? null) ? $data['bride_name'] : __('pages.bride_name_placeholder'),

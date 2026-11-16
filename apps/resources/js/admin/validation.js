@@ -29,7 +29,7 @@ const showError = (input, message) => {
       .join(' '),
   );
   const field = input.closest(
-    '.couple-field, .story-field, .registry-field, .event-field, .builder-field, .section-field, .iv-field, .appearance-field, .pb-field, .wish-field, .wish-setting-field',
+    '.couple-field, .story-field, .registry-field, .event-field, .builder-field, .section-field, .iv-field, .appearance-field, .pb-field, .nf-field, .wish-field, .wish-setting-field',
   );
   const photo = input.closest(
     '.couple-photo-picker, .story-image-picker, .registry-qr-picker, .event-photo-picker, .builder-photo',
@@ -67,9 +67,9 @@ export function showValidationErrors(errors, scope = document) {
   Object.entries(errors).forEach(([key, messages]) => {
     const parts = key.split('.');
     const name = parts.shift() + parts.map((part) => `[${part}]`).join('');
-    const input = [...scope.querySelectorAll('[name]')].find(
+    const input = [...scope.querySelectorAll('[name], [data-error-name]')].find(
       (element) =>
-        element.name === name &&
+        (element.name === name || element.dataset.errorName === name) &&
         element.matches('input:not([type="hidden"]), textarea, select'),
     );
     if (!input) return;

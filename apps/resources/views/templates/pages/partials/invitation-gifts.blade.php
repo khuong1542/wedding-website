@@ -1,4 +1,4 @@
-            <section class="v2-gifts v2-section">
+            <section class="v2-gifts v2-section" id="v2-registry">
                 <h2>{{ __('pages.registry') }}</h2>@include('templates.pages.partials.demo-lines', ['count' => 2])<div class="v2-gift-grid"
                     aria-hidden="true">
                     @for ($gift = 0; $gift < 2; $gift++)

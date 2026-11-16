@@ -1,0 +1,413 @@
+@import '../../templates/website-chrome.css';
+
+.nf-page {
+    margin-top: 24px;
+    font-size: 14px;
+}
+
+.nf-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nf-button.is-primary {
+    background: var(--admin-primary);
+    border-color: var(--admin-primary);
+    color: var(--admin-on-primary);
+}
+
+.nf-button.is-primary:hover {
+    background: var(--admin-primary-hover);
+}
+
+.nf-actions,
+.nf-tabs,
+.nf-form-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nf-tabs {
+    margin-bottom: 24px;
+}
+
+.nf-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: 20px;
+}
+
+.nf-controls,
+.nf-preview-column {
+    min-width: 0;
+}
+
+.nf-section {
+    padding: 20px;
+    margin-bottom: 20px;
+    scroll-margin-top: 100px;
+}
+
+.nf-section > header,
+.nf-preview-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.nf-section h2,
+.nf-preview-block h2 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0;
+    font-size: 18px;
+}
+
+.nf-section h2 i {
+    color: var(--admin-primary);
+    font-size: 24px;
+}
+
+.nf-section header p {
+    color: var(--admin-muted);
+    font-size: 12px;
+    margin: 6px 0 0;
+}
+
+.nf-table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--admin-border);
+    border-radius: 9px;
+}
+
+.nf-page table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.nf-page th,
+.nf-page td {
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--admin-border);
+    vertical-align: middle;
+}
+
+.nf-page th {
+    background: var(--admin-soft);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.nf-page tr:last-child td {
+    border-bottom: 0;
+}
+
+.nf-page td:first-child small {
+    display: block;
+    text-align: center;
+    color: var(--admin-muted);
+}
+
+.nf-page td .nf-field {
+    margin-bottom: 0;
+    min-width: 110px;
+}
+
+.nf-page td .nf-field input {
+    min-width: 110px;
+}
+
+.nf-page input:not([type='checkbox'], [type='file']),
+.nf-page select,
+.nf-page textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 9px 10px;
+    border: 1px solid var(--admin-border);
+    border-radius: 7px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font: inherit;
+}
+
+.nf-page .nf-icon-select {
+    font-size: 11px;
+    padding: 4px;
+    margin-top: 5px;
+}
+
+.nf-field {
+    margin-bottom: 18px;
+}
+
+.nf-field > label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.nf-field-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.nf-row-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 24px);
+    gap: 3px;
+}
+
+.nf-row-actions button,
+.nf-page td:first-child button {
+    border: 0;
+    padding: 3px;
+    background: transparent;
+    color: var(--admin-primary);
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.nf-row-actions button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.nf-page [data-action='drag'] {
+    cursor: grab;
+}
+
+.nf-field > .nf-switch-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.nf-switch {
+    appearance: none;
+    position: relative;
+    width: 40px;
+    height: 24px;
+    border-radius: 25px;
+    background: var(--admin-border);
+    border: 0;
+    padding: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.nf-switch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.nf-switch:checked {
+    background: var(--admin-primary);
+}
+
+.nf-switch:checked::after {
+    transform: translateX(16px);
+}
+
+.nf-empty {
+    padding: 35px !important;
+    color: var(--admin-muted);
+    text-align: center;
+}
+
+.nf-footer-tabs {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--admin-border);
+    padding-bottom: 10px;
+}
+
+.nf-footer-tabs button {
+    flex: 1;
+    white-space: nowrap;
+    padding: 10px 12px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+}
+
+.nf-footer-tabs [aria-selected='true'] {
+    background: var(--admin-primary);
+    color: var(--admin-on-primary);
+    border-color: var(--admin-primary);
+}
+
+.nf-preview-status p {
+    margin: 0;
+    min-height: 20px;
+    color: var(--admin-muted);
+    font-size: 12px;
+}
+
+.nf-preview-block + .nf-preview-block {
+    margin-top: 24px;
+}
+
+.nf-preview-block h2 {
+    margin-bottom: 15px;
+}
+
+.nf-preview-surface {
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.nf-preview .website-header .v2-brand {
+    font-size: 21px;
+}
+
+.nf-preview .website-menu {
+    gap: 10px;
+}
+
+.nf-preview .website-menu a {
+    font-size: 11px;
+}
+
+.nf-preview .website-footer-grid {
+    gap: 18px;
+}
+
+.nf-preview a {
+    pointer-events: none;
+}
+
+.nf-logo-picker {
+    position: relative;
+}
+
+.nf-logo-frame {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 145px;
+    border: 1px dashed var(--admin-border);
+    border-radius: 8px;
+    background: var(--admin-bg);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.nf-logo-frame > span {
+    padding: 20px;
+    text-align: center;
+    color: var(--admin-muted);
+    font-size: 12px;
+}
+
+.nf-logo-frame > span i {
+    display: block;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.nf-logo-frame > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+.nf-logo-frame input[type='file'] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.nf-logo-picker > button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    border: 0;
+    border-radius: 50%;
+    background: #581525;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.nf-form-actions {
+    justify-content: flex-end;
+}
+
+.nf-dialog {
+    width: min(430px, calc(100% - 32px));
+    padding: 24px;
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+}
+
+.nf-dialog::backdrop {
+    background: #200c1899;
+}
+
+.nf-dialog .nf-actions {
+    margin-top: 24px;
+    justify-content: flex-end;
+}
+
+.nf-page [hidden] {
+    display: none !important;
+}
+
+.nf-page :is(input, select, textarea, button, a):focus-visible {
+    outline: 2px solid var(--admin-primary);
+    outline-offset: 3px;
+}
+
+@media (max-width: 1200px) {
+    .nf-workspace {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .nf-field-grid,
+    .nf-preview .website-footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

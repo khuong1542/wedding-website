@@ -1,24 +1,8 @@
 @extends('templates.pages.layout')
 @section('page_template_theme', 'page-template-classic page-template-version-2')
 @section('page_template_content')
-    <header class="v2-header">
-        <a class="v2-brand" href="#home">
-            @if ($image)
-            <img class="v2-logo" src="{{ $image }}" alt="{{ __('pages.logo') }}">@else<span class="v2-brand-heart"
-                    aria-hidden="true">♡♡</span>
-            @endif
-            <span>
-                {{ $pageTitle }}</span>
-        </a>
-        <nav class="v2-nav" aria-label="{{ __('pages.demo_layout') }}">
-            @foreach (['story', 'couple', 'events', 'gallery'] as $section)
-                <a href="#v2-{{ $section }}">{{ __('pages.' . $section) }}</a>
-            @endforeach
-        </nav>
-        <span class="skeleton-block v2-header-note" aria-hidden="true"></span>
-    </header>
-    <div class="v2-wedding-layout template-skeleton" id="home" role="region"
-        aria-label="{{ __('pages.demo_layout') }}">
+    @include('templates.pages.partials.site-header')
+    <div class="v2-wedding-layout template-skeleton" id="home" role="region" aria-label="{{ __('pages.demo_layout') }}">
         <div class="v2-left-column">
             <section class="v2-hero">
                 <div class="skeleton-block v2-hero-image" aria-hidden="true"></div>
@@ -98,7 +82,7 @@
                     </span><span class="skeleton-block v2-button-placeholder"></span>
                 </div>
             </section>
-            <section class="v2-wishes v2-section">
+            <section class="v2-wishes v2-section" id="v2-wishes">
                 <h2>{{ __('pages.wishes') }}</h2>
                 <div class="v2-wishes-layout" aria-hidden="true">
                     <div class="v2-wish-list">
@@ -116,7 +100,7 @@
                     </div>
                 </div>
             </section>
-            <section class="v2-gifts v2-section">
+            <section class="v2-gifts v2-section" id="v2-registry">
                 <h2>{{ __('pages.registry') }}</h2>@include('templates.pages.partials.demo-lines', ['count' => 2])<div class="v2-gift-grid"
                     aria-hidden="true">
                     @for ($gift = 0; $gift < 2; $gift++)
@@ -126,11 +110,5 @@
             </section>
         </div>
     </div>
-    <footer class="v2-footer"><strong>{{ $groomName }} &amp; {{ $brideName }}</strong>
-        <div class="v2-footer-links" aria-hidden="true">
-            @for ($link = 0; $link < 5; $link++)
-                <span class="skeleton-block"></span>
-            @endfor
-        </div><span class="skeleton-block v2-footer-note" aria-hidden="true"></span>
-    </footer>
+    @include('templates.pages.partials.site-footer')
 @endsection

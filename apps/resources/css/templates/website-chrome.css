@@ -1,0 +1,138 @@
+.website-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 4%;
+    background: var(--wedding-background, #fff9fb);
+    border-bottom: 1px solid var(--wedding-border, #f3d6e0);
+    color: var(--wedding-text, #581525);
+}
+
+.website-header .v2-brand {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    font:
+        italic 400 24px/1.5 'Noto Serif',
+        serif;
+    color: var(--wedding-text, #581525);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.website-header .v2-logo {
+    max-width: 120px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.website-header .v2-brand-heart {
+    color: var(--wedding-primary, #d81b60);
+    font-size: 32px;
+}
+
+.website-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.website-menu a {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    color: var(--wedding-text, #581525);
+    text-decoration: none;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.website-menu a:hover,
+.website-footer a:hover {
+    color: var(--wedding-primary, #d81b60);
+}
+
+.website-header.website-header-stacked,
+.website-header.website-logo-center {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.website-footer {
+    padding: 36px 4% 18px;
+    color: var(--wedding-text, #581525);
+    background: var(--wedding-secondary, #fce4ec);
+    border-radius: var(--wedding-radius, 12px);
+}
+
+.website-footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 30px;
+    text-align: left;
+}
+
+.website-footer strong {
+    display: block;
+    font:
+        italic 400 25px/1.5 'Noto Serif',
+        serif;
+    overflow-wrap: anywhere;
+}
+
+.website-footer h3 {
+    font-size: 14px;
+    margin: 0 0 14px;
+}
+
+.website-footer p {
+    font:
+        400 13px/1.8 'Noto Sans',
+        sans-serif;
+    white-space: pre-wrap;
+    color: inherit;
+    overflow-wrap: anywhere;
+}
+
+.website-footer a {
+    display: block;
+    color: inherit;
+    font-size: 13px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    margin-bottom: 10px;
+}
+
+.website-footer-logo {
+    max-width: 150px;
+    height: 55px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.website-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.website-copyright {
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid var(--wedding-border, #f3d6e0);
+    text-align: center;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    .website-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

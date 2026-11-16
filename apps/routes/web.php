@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ContentPageController;
 use App\Http\Controllers\Admin\CoupleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InvitationController;
+use App\Http\Controllers\Admin\NavigationController;
 use App\Http\Controllers\Admin\OurStoryController;
 use App\Http\Controllers\Admin\PageBuilderController;
 use App\Http\Controllers\Admin\PlaceholderController;
@@ -43,6 +44,7 @@ Route::middleware(AdminContext::class)->group(function () {
                     'themes' => [AppearanceController::class, 'index'],
                     'page-builder' => [PageBuilderController::class, 'index'],
                     'ui-settings' => [UiSettingsController::class, 'index'],
+                    'navigation' => [NavigationController::class, 'index'],
                     'shared-events' => [WeddingEventController::class, 'shared'],
                     default => PlaceholderController::class,
                 };
@@ -119,4 +121,11 @@ Route::middleware(AdminContext::class)->group(function () {
     Route::put('/admin/ui-settings', [UiSettingsController::class, 'save'])->name('admin.ui-settings.save');
     Route::post('/admin/ui-settings/preview', [UiSettingsController::class, 'preview'])->name('admin.ui-settings.preview');
     Route::get('/admin/ui-settings/preview', [UiSettingsController::class, 'show'])->name('admin.ui-settings.show');
+});
+
+Route::middleware(AdminContext::class)->group(function () {
+    Route::put('/admin/navigation', [NavigationController::class, 'save'])->name('admin.navigation.save');
+    Route::post('/admin/navigation/preview', [NavigationController::class, 'preview'])->name('admin.navigation.preview');
+    Route::get('/admin/navigation/preview', [NavigationController::class, 'show'])->name('admin.navigation.show');
+    Route::get('/admin/navigation/logo', [NavigationController::class, 'logo'])->name('admin.navigation.logo');
 });

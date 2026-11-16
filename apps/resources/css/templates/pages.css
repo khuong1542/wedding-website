@@ -1,4 +1,6 @@
 @import '../fonts.css';
+@import '@boxicons/core/fonts/basic/boxicons.css';
+@import './website-chrome.css';
 
 * {
     box-sizing: border-box;
