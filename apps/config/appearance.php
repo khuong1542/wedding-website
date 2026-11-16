@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'defaults' => ['theme' => 'romantic', 'primary' => '#D81B60', 'secondary' => '#FCE4EC', 'accent' => '#E9A6BC', 'background' => '#FFF9FB', 'text' => '#581525', 'border' => '#F3D6E0', 'heading_font' => 'serif', 'body_font' => 'sans', 'font_size' => 14, 'content_width' => 1200, 'radius' => 12, 'sticky_header' => true, 'animations' => true],
+    'defaults' => ['theme' => 'romantic', 'primary' => '#D81B60', 'secondary' => '#FCE4EC', 'accent' => '#E9A6BC', 'background' => '#FFF9FB', 'text' => '#581525', 'border' => '#F3D6E0', 'heading_font' => 'serif', 'body_font' => 'sans', 'font_size' => 14, 'content_width' => 1200, 'radius' => 12, 'sticky_header' => true, 'animations' => true, 'mode' => 'light', 'layout' => 'full', 'shadow' => 'soft', 'spacing' => 16, 'button_style' => 'filled', 'button_size' => 'medium', 'hover_effect' => true, 'smooth_scroll' => true],
     'fonts' => ['serif' => 'Noto Serif', 'sans' => 'Noto Sans'],
     'themes' => [
         'romantic' => ['#D81B60', '#FCE4EC', '#E9A6BC', '#FFF9FB', '#581525', '#F3D6E0'],

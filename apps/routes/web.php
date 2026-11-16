@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PageBuilderController;
 use App\Http\Controllers\Admin\PlaceholderController;
 use App\Http\Controllers\Admin\RegistryController;
 use App\Http\Controllers\Admin\RsvpResponseController;
+use App\Http\Controllers\Admin\UiSettingsController;
 use App\Http\Controllers\Admin\WeddingEventController;
 use App\Http\Controllers\Admin\WishController;
 use App\Http\Middleware\AdminContext;
@@ -41,6 +42,7 @@ Route::middleware(AdminContext::class)->group(function () {
                     'wishes' => [WishController::class, 'index'],
                     'themes' => [AppearanceController::class, 'index'],
                     'page-builder' => [PageBuilderController::class, 'index'],
+                    'ui-settings' => [UiSettingsController::class, 'index'],
                     'shared-events' => [WeddingEventController::class, 'shared'],
                     default => PlaceholderController::class,
                 };
@@ -111,4 +113,10 @@ Route::middleware(AdminContext::class)->group(function () {
     Route::put('/admin/page-builder', [PageBuilderController::class, 'save'])->name('admin.page-builder.save');
     Route::post('/admin/page-builder/preview', [PageBuilderController::class, 'preview'])->name('admin.page-builder.preview');
     Route::get('/admin/page-builder/preview', [PageBuilderController::class, 'show'])->name('admin.page-builder.show');
+});
+
+Route::middleware(AdminContext::class)->group(function () {
+    Route::put('/admin/ui-settings', [UiSettingsController::class, 'save'])->name('admin.ui-settings.save');
+    Route::post('/admin/ui-settings/preview', [UiSettingsController::class, 'preview'])->name('admin.ui-settings.preview');
+    Route::get('/admin/ui-settings/preview', [UiSettingsController::class, 'show'])->name('admin.ui-settings.show');
 });

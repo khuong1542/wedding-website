@@ -16,14 +16,14 @@ class AppearanceService
 
     public function save(array $data): void
     {
-        $this->repository->save($data);
+        $this->repository->save(array_replace($this->repository->settings(), $data));
     }
 
     public function preview(?array $data = null): array
     {
         $page = $this->pages->primary();
         $preview = $this->pageService->preview(['id' => $page?->id, 'blade_template' => $page?->blade_template ?? 'classic', 'title' => $page?->title, 'groom_name' => $page?->groom_name, 'bride_name' => $page?->bride_name, 'summary' => $page?->summary]);
-        $preview['data']['appearance'] = $data ?? $this->repository->settings();
+        $preview['data']['appearance'] = array_replace($this->repository->settings(), $data ?? []);
 
         return $preview;
     }

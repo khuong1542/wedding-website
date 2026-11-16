@@ -8,6 +8,7 @@
     <meta name="description" content="{{ $seoDescription ?: $summary }}">
     @vite('resources/css/templates/pages.css')
     @include('templates.pages.partials.appearance')
+    @include('templates.pages.partials.ui-settings')
 </head>
 
 <body class="page-template @yield('page_template_theme')">

@@ -13,6 +13,9 @@ class AppearanceRepository
 
     public function save(array $settings): void
     {
-        AppearanceSetting::updateOrCreate(['id' => 1], ['settings' => $settings]);
+        $appearance = AppearanceSetting::find(1) ?? new AppearanceSetting;
+        $appearance->id = 1;
+        $appearance->settings = $settings;
+        $appearance->save();
     }
 }
