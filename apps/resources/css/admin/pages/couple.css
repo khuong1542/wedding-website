@@ -33,9 +33,9 @@
     justify-content: center;
     gap: 8px;
     padding: 11px 16px;
-    background: #dfc17d;
-    color: #132440;
-    border: 1px solid #dfc17d;
+    background: var(--admin-primary);
+    color: var(--admin-on-primary);
+    border: 1px solid var(--admin-primary);
     border-radius: 7px;
     font-size: 14px;
     font-weight: 600;
@@ -90,7 +90,7 @@
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    color: #b89750;
+    color: var(--admin-primary);
     background: var(--admin-soft);
     font-size: 22px;
 }
@@ -194,7 +194,7 @@
 
 .couple-field label span,
 .couple-bottom-actions > span > span {
-    color: #b88c36;
+    color: var(--admin-primary);
 }
 
 .couple-field input,
@@ -224,7 +224,7 @@
 .couple-field input:focus,
 .couple-field textarea:focus,
 .couple-file:focus-visible {
-    outline: 2px solid var(--admin-gold);
+    outline: 2px solid var(--admin-primary);
     outline-offset: 2px;
 }
 
@@ -258,8 +258,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background: #152842;
-    color: #dfc17d;
+    background: var(--admin-soft);
+    color: var(--admin-primary);
     font-size: 14px;
     letter-spacing: 1.5px;
 }
@@ -292,7 +292,7 @@
 }
 
 .couple-preview h2 {
-    font-family: Georgia, serif;
+    font-family: 'Noto Serif', serif;
     font-size: 25px;
     font-weight: 400;
     line-height: 1.4;
@@ -308,7 +308,7 @@
 .couple-preview-divider {
     width: 30px;
     height: 1px;
-    background: var(--admin-gold);
+    background: var(--admin-primary);
     margin: 24px auto;
 }
 
@@ -378,11 +378,11 @@
 .couple-person .couple-section-heading {
     padding: 12px 18px;
     gap: 10px;
-    background: #6386c212;
+    background: var(--admin-soft);
 }
 
 .couple-person-bride .couple-section-heading {
-    background: #ce759e12;
+    background: var(--admin-soft);
 }
 
 .couple-person .couple-section-heading p {
@@ -398,12 +398,12 @@
     width: auto;
     height: auto;
     background: transparent;
-    color: #7391c1;
+    color: var(--admin-primary);
     font-size: 20px;
 }
 
 .couple-person-bride .couple-section-icon {
-    color: #c7789b;
+    color: var(--admin-primary);
 }
 
 .couple-person-summary {
@@ -495,7 +495,7 @@
 }
 
 .couple-photo-picker .couple-portrait:focus-within {
-    outline: 2px solid var(--admin-gold);
+    outline: 2px solid var(--admin-primary);
     outline-offset: 3px;
 }
 
@@ -512,7 +512,7 @@
 }
 
 .couple-photo-hint > i {
-    color: #b89750;
+    color: var(--admin-primary);
     font-size: 28px;
 }
 
@@ -536,7 +536,7 @@
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: #101e36d9;
+    background: var(--admin-primary-hover);
     color: #fff;
     box-shadow: 0 2px 8px #00000025;
     font-size: 20px;
@@ -565,7 +565,7 @@
     height: auto;
     aspect-ratio: 1;
     margin: 0;
-    border: 1px dashed var(--admin-gold);
+    border: 1px dashed var(--admin-primary);
     border-radius: 12px;
     background: var(--admin-surface);
     transition:
@@ -597,12 +597,12 @@
 }
 
 .couple-qr-section > h3 > i {
-    color: #b89750;
+    color: var(--admin-primary);
     font-size: 20px;
 }
 
 .couple-qr-frame:hover {
-    box-shadow: 0 0 0 3px #d9b86c18;
+    box-shadow: 0 0 0 3px var(--admin-soft);
 }
 
 .couple-qr-frame .couple-photo-hint {

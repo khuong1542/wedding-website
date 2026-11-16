@@ -1,0 +1,346 @@
+.rsvp-page {
+    margin-top: 26px;
+    font-size: 14px;
+}
+
+.rsvp-tabs,
+.rsvp-row-actions,
+.rsvp-detail-actions,
+.rsvp-pagination,
+.rsvp-pagination nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.rsvp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    color: var(--admin-text);
+    background: var(--admin-surface);
+    text-decoration: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+.rsvp-button.is-active {
+    background: var(--admin-primary);
+    border-color: var(--admin-primary);
+    color: var(--admin-on-primary);
+}
+
+.rsvp-button.is-active:hover {
+    background: var(--admin-primary-hover);
+}
+
+.rsvp-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 24px 0;
+}
+
+.rsvp-stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px;
+}
+
+.rsvp-stat strong {
+    display: block;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+.rsvp-stat small {
+    align-self: start;
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.rsvp-stat-icon,
+.rsvp-avatar {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--admin-soft);
+    color: var(--admin-primary);
+    font-size: 24px;
+}
+
+.rsvp-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px;
+    margin-bottom: 20px;
+}
+
+.rsvp-filters label {
+    flex: 1 1 150px;
+    min-width: 0;
+}
+
+.rsvp-filters .rsvp-search {
+    flex: 2 1 260px;
+}
+
+.rsvp-page input,
+.rsvp-page select,
+.rsvp-page textarea {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid var(--admin-border);
+    border-radius: 7px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    padding: 10px 12px;
+    font: inherit;
+}
+
+.rsvp-page :is(input, select, textarea, button, a):focus-visible {
+    outline: 2px solid var(--admin-primary);
+    outline-offset: 3px;
+}
+
+.rsvp-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.rsvp-workspace.has-detail {
+    grid-template-columns: minmax(0, 1fr) 330px;
+}
+
+.rsvp-list {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.rsvp-table-scroll {
+    overflow-x: auto;
+}
+
+.rsvp-page table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.rsvp-page th {
+    background: var(--admin-soft);
+    font-weight: 600;
+}
+
+.rsvp-page th,
+.rsvp-page td {
+    padding: 16px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.rsvp-page tr.is-selected {
+    background: var(--admin-soft);
+}
+
+.rsvp-guest {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rsvp-guest strong,
+.rsvp-page td small,
+.rsvp-guest small {
+    display: block;
+}
+
+.rsvp-guest small {
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.rsvp-guest h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.rsvp-group,
+.rsvp-badge {
+    display: inline-flex;
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: var(--admin-soft);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.rsvp-badge.rsvp-attending {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.rsvp-badge.rsvp-declined {
+    color: #9f1239;
+    background: #ffe4e6;
+}
+
+.rsvp-badge.rsvp-pending {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+.rsvp-note {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.rsvp-row-actions a,
+.rsvp-row-actions button,
+.rsvp-detail header > a {
+    display: inline-flex;
+    background: transparent;
+    border: 0;
+    color: var(--admin-primary);
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 19px;
+}
+
+.rsvp-pagination {
+    padding: 18px;
+}
+
+.rsvp-pagination > span {
+    margin-right: auto;
+}
+
+.rsvp-empty {
+    text-align: center;
+    height: 240px;
+}
+
+.rsvp-empty > i {
+    font-size: 36px;
+    color: var(--admin-primary);
+}
+
+.rsvp-detail header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-soft);
+    border-radius: 12px 12px 0 0;
+}
+
+.rsvp-detail h2,
+.rsvp-dialog h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.rsvp-detail-body,
+.rsvp-edit {
+    padding: 20px;
+    overflow-wrap: anywhere;
+}
+
+.rsvp-detail dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    border-bottom: 1px solid var(--admin-border);
+    padding: 18px 0;
+}
+
+.rsvp-detail dd {
+    margin: 0;
+    text-align: right;
+    white-space: pre-wrap;
+    max-width: 65%;
+}
+
+.rsvp-detail-actions {
+    margin-top: 24px;
+}
+
+.rsvp-edit > label {
+    display: block;
+    margin: 14px 0 7px;
+    font-weight: 600;
+}
+
+.rsvp-error {
+    color: #e11d48;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.rsvp-dialog {
+    width: min(460px, calc(100% - 32px));
+    padding: 24px;
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+}
+
+.rsvp-dialog::backdrop {
+    background: #200c1899;
+}
+
+@media (max-width: 1200px) {
+    .rsvp-workspace.has-detail {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .rsvp-detail {
+        grid-row: 1;
+    }
+
+    .rsvp-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 540px) {
+    .rsvp-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .rsvp-tabs .rsvp-button {
+        flex: 1 1 45%;
+    }
+}
+
+.rsvp-stat.rsvp-attending .rsvp-stat-icon {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.rsvp-stat.rsvp-declined .rsvp-stat-icon {
+    color: #9f1239;
+    background: #ffe4e6;
+}
+
+.rsvp-stat.rsvp-pending .rsvp-stat-icon {
+    color: #92400e;
+    background: #fef3c7;
+}

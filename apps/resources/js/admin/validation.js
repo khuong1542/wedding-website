@@ -29,10 +29,10 @@ const showError = (input, message) => {
       .join(' '),
   );
   const field = input.closest(
-    '.couple-field, .story-field, .registry-field, .event-field',
+    '.couple-field, .story-field, .registry-field, .event-field, .builder-field, .section-field',
   );
   const photo = input.closest(
-    '.couple-photo-picker, .story-image-picker, .registry-qr-picker, .event-photo-picker',
+    '.couple-photo-picker, .story-image-picker, .registry-qr-picker, .event-photo-picker, .builder-photo',
   );
   if (field) field.append(error);
   else if (photo) photo.after(error);

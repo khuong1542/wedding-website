@@ -28,9 +28,9 @@
 
 .registry-tabs button[aria-selected='true'],
 .registry-button {
-    color: #14253d;
-    background: #dfc17d;
-    border-color: #dfc17d;
+    color: var(--admin-on-primary);
+    background: var(--admin-primary);
+    border-color: var(--admin-primary);
     font-weight: 600;
 }
 
@@ -64,7 +64,7 @@
 .registry-panel-heading h2 > i,
 .registry-account-heading h3 > i {
     font-size: 24px;
-    color: #b89750;
+    color: var(--admin-primary);
 }
 
 .registry-switch-label {
@@ -107,7 +107,7 @@
 }
 
 .registry-switch-label input:checked + .registry-switch {
-    background: #b89750;
+    background: var(--admin-primary);
 }
 
 .registry-switch-label input:checked + .registry-switch::after {
@@ -115,7 +115,7 @@
 }
 
 .registry-switch-label input:focus-visible + .registry-switch {
-    outline: 2px solid var(--admin-gold);
+    outline: 2px solid var(--admin-primary);
     outline-offset: 3px;
 }
 
@@ -133,11 +133,11 @@
 }
 
 .registry-account-bride .registry-account-heading {
-    background: #ce759e12;
+    background: var(--admin-soft);
 }
 
 .registry-account-groom .registry-account-heading {
-    background: #6386c212;
+    background: var(--admin-soft);
 }
 
 .registry-account-body {
@@ -183,7 +183,7 @@
 .registry-field input:focus,
 .registry-content textarea:focus,
 .registry-qr-frame:focus-within {
-    outline: 2px solid var(--admin-gold);
+    outline: 2px solid var(--admin-primary);
     outline-offset: 2px;
 }
 
@@ -220,7 +220,7 @@
     position: relative;
     aspect-ratio: 1;
     overflow: hidden;
-    border: 1px dashed var(--admin-gold);
+    border: 1px dashed var(--admin-primary);
     border-radius: 10px;
     background: var(--admin-soft);
     cursor: pointer;
@@ -239,7 +239,7 @@
 
 .registry-qr-frame > span > i {
     font-size: 34px;
-    color: #b89750;
+    color: var(--admin-primary);
 }
 
 .registry-qr-frame img,
@@ -270,7 +270,7 @@
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: #14253ddd;
+    background: var(--admin-primary-hover);
     color: white;
     font-size: 20px;
     cursor: pointer;
