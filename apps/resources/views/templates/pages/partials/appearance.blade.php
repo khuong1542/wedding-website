@@ -25,6 +25,7 @@
         font-family: '{{ config('appearance.fonts')[$appearance['heading_font']] ?? 'Noto Serif' }}', serif !important;
     }
 
+    .builder-published-content,
     .v2-wedding-layout,
     .v2-header,
     .v2-footer {

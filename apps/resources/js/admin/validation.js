@@ -29,7 +29,7 @@ const showError = (input, message) => {
       .join(' '),
   );
   const field = input.closest(
-    '.couple-field, .story-field, .registry-field, .event-field, .builder-field, .section-field, .iv-field, .appearance-field, .wish-field, .wish-setting-field',
+    '.couple-field, .story-field, .registry-field, .event-field, .builder-field, .section-field, .iv-field, .appearance-field, .pb-field, .wish-field, .wish-setting-field',
   );
   const photo = input.closest(
     '.couple-photo-picker, .story-image-picker, .registry-qr-picker, .event-photo-picker, .builder-photo',
